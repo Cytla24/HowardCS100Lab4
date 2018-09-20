@@ -40,6 +40,8 @@ def decide_winner(hand, dealer_hand):
                 return "player"
             else:
                 return "player" if player_high_cards > dealer_high_cards else "dealer"
+        elif check_fn(dealer_hand):
+            return "dealer"
     if player_high_cards > dealer_high_cards:
         return "player"
     elif dealer_high_cards > player_high_cards:
@@ -83,35 +85,55 @@ def get_suit(card):
 # ---------------------------------------------
 
 def is_pair(hand):
-    # Replace this code with working code! Should return either True or False based on the hand.
-    return False
+    # To determine if we have a pair, we need to look at just the values of the cards,
+    # and check if any of the values appear more than once. To do this, we'll first
+    # get all of the values using get_value() and put them in their own array, then
+    # check how many times each value in that array appears using .count().
+    
+    card_values = []
+    int_i = 0 # Initialize our counter
+    while int_i < len(hand): # Loop over each value in the hand array using a while loop
+        card = hand[int_i] # Get the next element of hand
+        card_value = get_value(card) # Get the value of the card
+        card_values.append(card_value) # Add the value to our values list
+        int_i += 1 # Increment our counter
 
-def is_two_pairs(hand):
-    # Replace this code with working code! Should return either True or False based on the hand.
+    for value in card_values: # Loop over each value in our values array using a for loop
+        # We don't need to declare a counter, because the for loop will automatically
+        # set value to each item in card_values, one at a time. If you're not sure what
+        # that means, try adding a print statement that prints value inside the loop.
+        count_result = card_values.count(value) # Count appearances of value
+        if count_result > 1: # If we have 2 or more of the same value
+            return True # Then there's a pair! And so we can return True.
+
+    return False # OUTSIDE the for loop. Once we've looped over every value, if none of
+                 # them have a count that's greater than 1, that means we can't have a
+                 # pair, since a pair would have a count of 2. So since there are no
+                 # pairs, we return False.
+        
+
+def is_two_pairs(hand): # Extra credit
     return False
 
 def is_three_of_a_kind(hand):
     # Replace this code with working code! Should return either True or False based on the hand.
     return False
 
-def is_straight(hand):
-    # Replace this code with working code! Should return either True or False based on the hand.
+def is_straight(hand): # Extra credit.
     return False
 
 def is_flush(hand):
     # Replace this code with working code! Should return either True or False based on the hand.
     return False
 
-def is_full_house(hand):
-    # Replace this code with working code! Should return either True or False based on the hand.
+def is_full_house(hand): # Extra credit.
     return False
 
 def is_four_of_a_kind(hand):
     # Replace this code with working code! Should return either True or False based on the hand.
     return False
 
-def is_straight_flush(hand):
-    # Replace this code with working code! Should return either True or False based on the hand.
+def is_straight_flush(hand): # Extra credit.
     return False
 
 # ---------------------------------------------
