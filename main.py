@@ -112,29 +112,88 @@ def is_pair(hand):
                  # pairs, we return False.
         
 
-def is_two_pairs(hand): # Extra credit
+def is_two_pairs(hand):
+    # Replace this code with working code! Should return either True or False based on the hand.
+    suits = ["S", "C", "H", "D"]
+    rank = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
+    no_times =[]
+    List_numbers=[]
+    for a in hand:
+        value = get_value(a)
+        List_numbers.append(value)
+    for y in rank:
+        b = List_numbers.count(y)
+        no_times.append(b)
+    if no_times.count(2)==2:
+        return True
     return False
 
 def is_three_of_a_kind(hand):
     # Replace this code with working code! Should return either True or False based on the hand.
+    suits = ["S", "C", "H", "D"]
+    rank = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
+    no_times =[]
+    List_numbers=[]
+    for a in hand:
+        value = get_value(a)
+        List_numbers.append(value)
+    for y in rank:
+        b = List_numbers.count(y)
+        no_times.append(b)
+    if no_times.count(3)==1:
+        return True
     return False
 
-def is_straight(hand): # Extra credit.
+def is_straight(hand):
+    # Replace this code with working code! Should return either True or False based on the hand.
+    suits = ["S", "C", "H", "D"]
+    rank = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
     return False
 
 def is_flush(hand):
     # Replace this code with working code! Should return either True or False based on the hand.
+    suits = ["S", "C", "H", "D"]
+    rank = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
+    no_times =[]
+    List_suit=[]
+    for a in hand:
+        suita = get_suit(a)
+        List_suit.append(suita)
+    for y in suits:
+        b = List_suit.count(y)
+        no_times.append(b)
+    if no_times.count(5)==1:
+        return True
     return False
 
-def is_full_house(hand): # Extra credit.
+def is_full_house(hand):
+    # Replace this code with working code! Should return either True or False based on the hand.
+    suits = ["S", "C", "H", "D"]
+    rank = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
     return False
 
 def is_four_of_a_kind(hand):
     # Replace this code with working code! Should return either True or False based on the hand.
+    suits = ["S", "C", "H", "D"]
+    rank = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
+    no_times =[]
+    List_numbers=[]
+    for a in hand:
+        value = get_value(a)
+        List_numbers.append(value)
+    for y in rank:
+        b = List_numbers.count(y)
+        no_times.append(b)
+    if no_times.count(4)==1:
+        return True
     return False
 
-def is_straight_flush(hand): # Extra credit.
+def is_straight_flush(hand):
+    # Replace this code with working code! Should return either True or False based on the hand.
+    suits = ["S", "C", "H", "D"]
+    rank = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
     return False
+
 
 # ---------------------------------------------
 # You don't need to change anything below here.
